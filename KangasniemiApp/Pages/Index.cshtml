@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Kangasniemi - Tilastoja";
+}
+@section Scripts {
+    <script type="text/javascript">
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const chartLegend = '@Html.Raw(Model.ChartData.Title)';
+        const chartLabels = @Html.Raw(Json.Serialize(Model.ChartData.Labels));
+        const chartData = @Html.Raw(Json.Serialize(Model.ChartData.Values));
+        console.log(chartData);
+    </script>
+    <script src="~/js/mychart.js" asp-append-version="true"></script>
+}
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
